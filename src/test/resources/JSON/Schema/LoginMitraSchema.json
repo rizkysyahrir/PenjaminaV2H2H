@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "boolean"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "access_token": {
+          "type": "string"
+        },
+        "exp_token": {
+          "type": "string"
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "UserName": {
+              "type": "string"
+            },
+            "LoginDatetime": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "UserName",
+            "LoginDatetime"
+          ]
+        }
+      },
+      "required": [
+        "access_token",
+        "exp_token",
+        "result"
+      ]
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "status",
+    "data",
+    "message"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "boolean"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "no_rekening": {
+          "type": "string"
+        },
+        "nomor_aplikasi": {
+          "type": "string"
+        },
+        "no_sertifikat": {
+          "type": "string"
+        },
+        "tanggal_sertifikat": {
+          "type": "string"
+        },
+        "url_sertifikat": {
+          "type": "string"
+        },
+        "url_ijp": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "no_rekening",
+        "nomor_aplikasi",
+        "no_sertifikat",
+        "tanggal_sertifikat",
+        "url_sertifikat",
+        "url_ijp"
+      ]
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "status",
+    "data",
+    "message"
+  ]
+}
