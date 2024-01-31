@@ -3,20 +3,22 @@ package starter.penjaminanonline;
 import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
+import org.openqa.selenium.remote.Response;
 import starter.penjaminanonline.Utils.Constant;
 
 import java.io.File;
 
 public class PenjaminanAPI {
 
-    public static String POST_LOGIN_PENJ = Constant.BASE_URL + "/auth/login";
+    public static String POST_LOGIN_PENJ = Constant.BASE_URL + "auth/login";
     public static String POST_PENJ_BPD_JAMBI = Constant.BASE_URL + "bankjambi/penjaminanbaru";
 
     @Step("Post login bank")
-    public void postLogin(File json){
+    public Response postLogin(File json){
         SerenityRest.given()
                 .contentType(ContentType.JSON)
                 .body(json);
+        return null;
     }
 
     @Step("Post login bank sulselbar pusat fail")

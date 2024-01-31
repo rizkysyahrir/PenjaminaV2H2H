@@ -8,8 +8,12 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import java.io.File;
+
+import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertEquals;
+
+import org.openqa.selenium.remote.Response;
 import starter.penjaminanonline.PenjaminanAPI;
 import starter.penjaminanonline.Utils.Constant;
 import starter.penjaminanonline.Utils.PenjaminanResponse;
@@ -17,6 +21,7 @@ import starter.penjaminanonline.Utils.PenjaminanResponse;
 public class LoginStep {
     @Steps
     PenjaminanAPI penjaminanAPI;
+    private String authToken;
 
     @Given("Login Penjaminan with valid json")
     public void loginAdminValidJson(){
@@ -52,7 +57,7 @@ public class LoginStep {
 
     //negative
     @Given("Login akun with {string} and {string}")
-    public void loginBankSulselFailed(String username, String password){
+    public void loginBankFailed(String username, String password){
         penjaminanAPI.postLoginFail(username, password);
     }
 
@@ -79,5 +84,8 @@ public class LoginStep {
         SerenityRest.then()
                 .assertThat()
                 .body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
+    }
+    public String getAuthToken() {
+        return authToken;
     }
 }
